@@ -39,7 +39,7 @@ public class SummonerAdapter extends RecyclerView.Adapter<SummonerListHolder>
         //Initializing the view holder to hold stock_list_row
         View itemView = LayoutInflater.from(parent.getContext()).inflate(R.layout.summoner_list_row, parent, false);
         //itemView.setOnClickListener(mainAct);
-        //itemView.setOnLongClickListener(mainAct);
+        itemView.setOnLongClickListener(mainAct);
         return new SummonerListHolder(itemView);
     }
 
