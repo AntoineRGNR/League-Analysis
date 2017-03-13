@@ -8,6 +8,8 @@ import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 
 import java.util.ArrayList;
@@ -71,6 +73,28 @@ public class MainActivity extends AppCompatActivity implements View.OnLongClickL
         //Returning the position of the Stock to backDialog method
         deleteDialog(summonerList.get(pos));
         return true;
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu)
+    {
+        //Adding Menu to MainActivity
+        Log.d(this.getString(R.string.TAGMA), "onCreateOptionsMenu");
+        getMenuInflater().inflate(R.menu.main_activity_menu, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item)
+    {
+        Log.d(this.getString(R.string.TAGMA), "onOptionsItemSelected");
+        //Doing Action if Menu Icon is selected
+        switch (item.getItemId()) {
+            case R.id.menuAdd:
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
     }
 
     public void deleteDialog(final Summoner summoner)
