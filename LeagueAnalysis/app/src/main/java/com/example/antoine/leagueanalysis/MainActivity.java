@@ -7,18 +7,14 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.text.InputFilter;
-import android.text.InputType;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
-import android.widget.Toast;
 
 import java.util.ArrayList;
-import java.util.Collections;
 
 public class MainActivity extends AppCompatActivity implements View.OnLongClickListener
 {
@@ -152,8 +148,50 @@ public class MainActivity extends AppCompatActivity implements View.OnLongClickL
         {
             public void onClick(DialogInterface dialog, int which)
             {
-                String region = items[which].toString();
-                searchDialog(region);
+                if (items[which].toString().equals("Brazil"))
+                {
+                    searchDialog("BR");
+                }
+                else if(items[which].toString().equals("Europe Nordic & East"))
+                {
+                    searchDialog("EUNE");
+                }
+                else if(items[which].toString().equals("Europe West"))
+                {
+                    searchDialog("EUW");
+                }
+                else if(items[which].toString().equals("Latin America North"))
+                {
+                    searchDialog("LAN");
+                }
+                else if(items[which].toString().equals("Latin America South"))
+                {
+                    searchDialog("LAS");
+                }
+                else if(items[which].toString().equals("North America"))
+                {
+                    searchDialog("NA");
+                }
+                else if(items[which].toString().equals("Oceania"))
+                {
+                    searchDialog("OCE");
+                }
+                else if(items[which].toString().equals("Russia"))
+                {
+                    searchDialog("RU");
+                }
+                else if(items[which].toString().equals("Turkey"))
+                {
+                    searchDialog("TR");
+                }
+                else if(items[which].toString().equals("South East Asia"))
+                {
+                    searchDialog("JP");
+                }
+                else if(items[which].toString().equals("Republic of Korea"))
+                {
+                    searchDialog("KR");
+                }
             }
         });
         builder.setNegativeButton("Nevermind", new DialogInterface.OnClickListener()
@@ -168,8 +206,9 @@ public class MainActivity extends AppCompatActivity implements View.OnLongClickL
         dialog.show();
     }
 
-    public void searchDialog(String region)
+    public void searchDialog(String rgn)
     {
+        final String region = rgn;
         Log.d(this.getString(R.string.TAGMA), "searchDialog: region: " + region);
         //AlertDialog Declaration and Initialization
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
@@ -183,6 +222,7 @@ public class MainActivity extends AppCompatActivity implements View.OnLongClickL
         {
             public void onClick(DialogInterface dialog, int id)
             {
+                startAsyncLoad(region, et.getText().toString());
                 Log.d("MainActivity", "searchDialog: summoner: " + et.getText().toString());
             }
         });
@@ -199,5 +239,10 @@ public class MainActivity extends AppCompatActivity implements View.OnLongClickL
 
         AlertDialog dialog = builder.create();
         dialog.show();
+    }
+
+    public void startAsyncLoad(String region, String summoner)
+    {
+        new AsyncLoadSummonerInformations(this).execute(region, summoner);
     }
 }
