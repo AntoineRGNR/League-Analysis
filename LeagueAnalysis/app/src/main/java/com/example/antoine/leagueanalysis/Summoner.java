@@ -12,14 +12,16 @@ public class Summoner
     private String summonerRegion;
     private String summonerLeague;
     private String summonerTier;
+    private String summonerID;
 
-    public Summoner(String summonerName, String summonerLevel, String summonerRegion, String summonerLeague, String summonerTier)
+    public Summoner(String summonerName, String summonerLevel, String summonerRegion, String summonerLeague, String summonerTier, String summonerID)
     {
         this.summonerName = summonerName;
         this.summonerLevel = summonerLevel;
         this.summonerRegion = summonerRegion;
         this.summonerLeague = summonerLeague;
         this.summonerTier = summonerTier;
+        this.summonerID = summonerID;
     }
 
     public String getSummonerName()
@@ -72,9 +74,17 @@ public class Summoner
         this.summonerTier = summonerTier;
     }
 
+    public String getSummonerID() {
+        return summonerID;
+    }
+
+    public void setSummonerID(String summonerID) {
+        this.summonerID = summonerID;
+    }
+
     @Override
     public String toString()
     {
-        return summonerName + summonerLevel + summonerRegion + summonerLeague + summonerTier;
+        return summonerName + summonerLevel + summonerRegion + summonerLeague + summonerTier + summonerID;
     }
 }

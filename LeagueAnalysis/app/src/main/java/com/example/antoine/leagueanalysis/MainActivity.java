@@ -66,7 +66,7 @@ public class MainActivity extends AppCompatActivity implements View.OnLongClickL
 
         // Make some data - not always needed - used to fill list
         for (int i = 0; i < 20; i++) {
-            summonerList.add(new Summoner(name, lvl, region, league, tier));
+            summonerList.add(new Summoner(name, lvl, region, league, tier, ""));
         }
         Log.d(this.getString(R.string.TAGMA), "onCreate: End");
     }
