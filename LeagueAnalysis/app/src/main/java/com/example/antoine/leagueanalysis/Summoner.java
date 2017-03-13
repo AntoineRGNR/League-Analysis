@@ -4,7 +4,8 @@ package com.example.antoine.leagueanalysis;
  * Created by antoine on 3/13/17.
  */
 
-public class Summoner {
+public class Summoner
+{
     //Summoner Var Declaration
     private String summonerName;
     private String summonerLevel;
@@ -12,7 +13,7 @@ public class Summoner {
     private String summonerLeague;
     private String summonerTier;
 
-    public void Summoner(String summonerName, String summonerLevel, String summonerRegion,String summonerLeague, String summonerTier)
+    public Summoner(String summonerName, String summonerLevel, String summonerRegion, String summonerLeague, String summonerTier)
     {
         this.summonerName = summonerName;
         this.summonerLevel = summonerLevel;

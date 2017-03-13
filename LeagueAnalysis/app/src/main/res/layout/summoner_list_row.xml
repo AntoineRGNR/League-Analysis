@@ -14,25 +14,25 @@
     <TextView
         android:id="@+id/SummonerName"
         android:layout_width="wrap_content"
-        android:layout_height="15dp"
+        android:layout_height="wrap_content"
         android:layout_marginLeft="16dp"
         android:text="CLG Bigfatlk"
-        android:textColor="#00e500"
+        android:textStyle="bold"
         app:layout_constraintLeft_toRightOf="@+id/SummonerIcon"
         app:layout_constraintTop_toTopOf="@+id/SummonerIcon"
-        android:textStyle="bold"/>
+        android:textColor="#1A237E"/>
 
     <TextView
         android:id="@+id/SummonerLevel"
         android:layout_width="wrap_content"
-        android:layout_height="15dp"
-        android:layout_marginLeft="0dp"
-        android:layout_marginTop="8dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="8dp"
         android:text="level: 30"
-        android:textColor="#00e500"
         android:textStyle="italic"
         app:layout_constraintLeft_toRightOf="@+id/SummonerName"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="@+id/SummonerName"
+        android:layout_marginTop="0dp"
+        android:textColor="#1A237E"/>
 
     <TextView
         android:id="@+id/SummonerRegion"
@@ -42,7 +42,8 @@
         android:layout_marginTop="4dp"
         android:text="Europe West"
         app:layout_constraintLeft_toRightOf="@+id/SummonerIcon"
-        app:layout_constraintTop_toBottomOf="@+id/SummonerName" />
+        app:layout_constraintTop_toBottomOf="@+id/SummonerName"
+        android:textColor="#1A237E"/>
 
     <TextView
         android:id="@+id/SummonerLeague"
@@ -52,7 +53,8 @@
         android:layout_marginTop="4dp"
         android:text="Ranked 5x5: Volibears LABAGARE"
         app:layout_constraintLeft_toRightOf="@+id/SummonerIcon"
-        app:layout_constraintTop_toBottomOf="@+id/SummonerRegion" />
+        app:layout_constraintTop_toBottomOf="@+id/SummonerRegion"
+        android:textColor="#1A237E"/>
 
     <TextView
         android:id="@+id/SummonerTier"
@@ -62,13 +64,14 @@
         android:layout_marginTop="4dp"
         android:text="Gold"
         app:layout_constraintLeft_toRightOf="@+id/SummonerIcon"
-        app:layout_constraintTop_toBottomOf="@+id/SummonerLeague" />
+        app:layout_constraintTop_toBottomOf="@+id/SummonerLeague"
+        android:textColor="#1A237E"/>
 
     <ImageView
         android:id="@+id/SummonerIcon"
-        android:layout_width="75dp"
-        android:layout_height="75dp"
-        app:srcCompat="@drawable/Aatrox"
+        android:layout_width="90dp"
+        android:layout_height="90dp"
+        app:srcCompat="@drawable/corki"
         app:layout_constraintTop_toTopOf="parent"
         android:layout_marginTop="4dp"
         app:layout_constraintBottom_toBottomOf="parent"
