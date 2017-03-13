@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string-array name="region_names">
+        <item>Brazil</item>
+        <item>Europe Nordic &amp; East</item>
+        <item>Europe West</item>
+        <item>Latin America North</item>
+        <item>Latin America South</item>
+        <item>North America</item>
+        <item>Oceania</item>
+        <item>Russia</item>
+        <item>Turkey</item>
+        <item>South East Asia</item>
+        <item>Republic of Korea</item>
+    </string-array>
+
+</resources>

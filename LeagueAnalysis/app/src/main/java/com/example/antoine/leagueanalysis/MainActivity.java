@@ -7,10 +7,15 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.text.InputFilter;
+import android.text.InputType;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.EditText;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -35,6 +40,19 @@ public class MainActivity extends AppCompatActivity implements View.OnLongClickL
     private String region = "EUW";
     private String league = "LA MERE A RAYAN";
     private String tier = "Challenger";
+
+    private String items[] =    {"Brazil",
+                                    "Europe Nordic & East",
+                                    "Europe West",
+                                    "Latin America North",
+                                    "Latin America South",
+                                    "North America",
+                                    "Oceania",
+                                    "Russia",
+                                    "Turkey",
+                                    "South East Asia",
+                                    "Republic of Korea"
+                                };
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -91,6 +109,7 @@ public class MainActivity extends AppCompatActivity implements View.OnLongClickL
         //Doing Action if Menu Icon is selected
         switch (item.getItemId()) {
             case R.id.menuAdd:
+                regionChoose();
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
@@ -120,6 +139,64 @@ public class MainActivity extends AppCompatActivity implements View.OnLongClickL
                 //Nothing to do if User press NO
             }
         });
+        AlertDialog dialog = builder.create();
+        dialog.show();
+    }
+
+    public void regionChoose()
+    {
+        Log.d(this.getString(R.string.TAGMA), "regionChoose: Start");
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("Choose a Region");
+        builder.setItems(items, new DialogInterface.OnClickListener()
+        {
+            public void onClick(DialogInterface dialog, int which)
+            {
+                String region = items[which].toString();
+                searchDialog(region);
+            }
+        });
+        builder.setNegativeButton("Nevermind", new DialogInterface.OnClickListener()
+        {
+            public void onClick(DialogInterface dialog, int id)
+            {
+
+            }
+        });
+
+        AlertDialog dialog = builder.create();
+        dialog.show();
+    }
+
+    public void searchDialog(String region)
+    {
+        Log.d(this.getString(R.string.TAGMA), "searchDialog: region: " + region);
+        //AlertDialog Declaration and Initialization
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        //EditText Declaration and Initialization
+        final EditText et = new EditText(this);
+        et.setGravity(Gravity.CENTER_HORIZONTAL);
+
+        builder.setView(et);
+
+        builder.setPositiveButton(R.string.ok, new DialogInterface.OnClickListener()
+        {
+            public void onClick(DialogInterface dialog, int id)
+            {
+                Log.d("MainActivity", "searchDialog: summoner: " + et.getText().toString());
+            }
+        });
+        builder.setNegativeButton(R.string.no, new DialogInterface.OnClickListener()
+        {
+            public void onClick(DialogInterface dialog, int id)
+            {
+
+            }
+        });
+
+        builder.setMessage("Please enter a Stock Symbol:");
+        builder.setTitle("Stock Selection");
+
         AlertDialog dialog = builder.create();
         dialog.show();
     }
